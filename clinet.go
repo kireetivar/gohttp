@@ -15,7 +15,7 @@ type Client struct {
 	Timeout time.Duration
 }
 
-func (c *Client) Do(ctx context.Context, req *Request) (*Response, error)  {
+func (c *Client) Do(ctx context.Context, req *Request) (*Response, error) {
 	n, err := net.Dial("tcp", req.Host)
 	if err != nil {
 		fmt.Printf("error opening connection %v \n", err)
@@ -34,7 +34,7 @@ func (c *Client) Do(ctx context.Context, req *Request) (*Response, error)  {
 	}
 	res := Response{
 		StatusCode: 200,
-		Body: io.NopCloser(strings.NewReader(string(b[:l]))),
+		Body:       io.NopCloser(strings.NewReader(string(b[:l]))),
 	}
 	return &res, nil
 }
