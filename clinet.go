@@ -58,7 +58,7 @@ func Get(ctx context.Context, rawUrl string) (*Response, error) {
 	}
 	res, err := c.Do(ctx, &req)
 	if err != nil {
-		return &Response{}, errors.New("Get call failed")
+		return &Response{}, errors.New("get call failed")
 	}
 	return res, nil
 }
